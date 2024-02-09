@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  
+  .form {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .btn {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .gallery {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .image-card {
+    margin: 10px;
+  }
+  
+  a[data-lightbox] {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a[data-lightbox]:hover {
+    opacity: 0.8;
+  }
