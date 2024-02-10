@@ -9,12 +9,13 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 /*Your API key: 22866492-0a616de8c4fefaa29c0c168ad*/
 
-const searchForm = document.querySelector('.form');
+const fetchPicturesForm = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
 const userInput = document.querySelector('input');
 const containerDiv = document.querySelector('.container');
+const loader = document.querySelector('.loader');
 
-searchForm.addEventListener('submit', event => {
+fetchPicturesForm.addEventListener('submit', event => {
   event.preventDefault();
 
   const apiKey = '22866492-0a616de8c4fefaa29c0c168ad';
@@ -67,7 +68,7 @@ searchForm.addEventListener('submit', event => {
 
         lightbox.on('show.simplelightbox');
         lightbox.refresh();
-        searchForm.reset();
+        fetchPicturesForm.reset();
       }
     })
     .catch(error => {
@@ -79,14 +80,9 @@ searchForm.addEventListener('submit', event => {
 });
 
 const showLoader = () => {
-  const loader = document.createElement('span');
-  loader.classList.add('loader');
-  containerDiv.appendChild(loader);
+  loader.style.display = 'block';
 };
 
 const hideLoader = () => {
-  const loader = document.querySelector('.loader');
-  if (loader) {
-    loader.remove();
-  }
+  loader.style.display = 'none';
 };
