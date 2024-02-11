@@ -7,19 +7,27 @@ import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-/*Your API key: 22866492-0a616de8c4fefaa29c0c168ad*/
-
 const fetchPicturesForm = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
 const userInput = document.querySelector('input');
-const containerDiv = document.querySelector('.container');
 const loader = document.querySelector('.loader');
 
-fetchPicturesForm.addEventListener('submit', event => {
-  event.preventDefault();
+fetchPicturesForm.addEventListener('submit', e => {
+  e.preventDefault();
 
   const apiKey = '22866492-0a616de8c4fefaa29c0c168ad';
-  const searchTerm = userInput.value;
+  const searchTerm = userInput.value.trim();
+
+  if (!searchTerm) {
+    iziToast.warning({
+      title: '',
+      backgroundColor: '#FFA07A',
+      message: 'Please enter a search term!',
+    });
+    return;
+  }
+
+  gallery.innerHTML = '';
 
   showLoader();
 
